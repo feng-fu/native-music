@@ -55,8 +55,8 @@ fastlane/screenshots
 
 # React-Native
 
-android/
-ios/
+# android/
+# ios/
 =======
 # Logs
 logs
