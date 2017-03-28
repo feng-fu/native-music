@@ -11,7 +11,8 @@
    }
 */
 
-export.fetchRequest = function(url, obj){
+exports.fetchRequest = function(url, obj){
+	obj = obj || {}
 	return fetch(url, obj).then(res=>res.json()).then(resJson=>resJson)
 		   .catch(err=>err)
 }

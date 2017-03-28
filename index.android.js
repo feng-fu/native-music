@@ -10,6 +10,6 @@ import {
   Text
 } from 'react-native';
 
-import Main from './src/view/navbar'
+import Main from './src/main'
 
 AppRegistry.registerComponent('nativemusic', () => Main);

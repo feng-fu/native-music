@@ -9,7 +9,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class navbarStyle extends Component {
-	propTypes = {
+	static propTypes = {
 		goToPage: React.PropTypes.func,
 		activeTab: React.PropTypes.number,
 		tabs: React.PropTypes.array,

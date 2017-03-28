@@ -26,15 +26,15 @@ export default class Navbar extends Component {
 		let tabIconNames = this.state.tabIconNames;
 		return (
 			<ScrollableTabView
-			renderTabBar={() => <NavbarD tabNames={tabNames} tabIconNames={tabIconNames}/>}>
-		        <View style={styles.content} tabLabel='key1'>
+			  renderTabBar={() => <NavbarD tabNames={tabNames} tabIconNames={tabIconNames}/>}>
+		    <View style={styles.content} tabLabel='key1'>
 					<IndexF/>
 				</View>
 
 				<View style={styles.content} tabLabel='key2'>
 					<IndexS/>
 				</View>
-		    </ScrollableTabView>	
+		  </ScrollableTabView>	
 		)
 	}
 }
