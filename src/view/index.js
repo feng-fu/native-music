@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View
+    StyleSheet,
+    Text,
+    View
 } from 'react-native';
 
-export default class homePage extends Component {
-  render() {
-    return (
-    	<View style={ styles.handbar }>
-    		<Text>111</Text>
-    	</View>
-    );
-  }
+export default class Index extends Component {
+	static defaultProps = {
+	    title: 'MyScene'
+	}
+	render() {
+		return (
+			<View style={ styles.handbar }>
+				<Text>111 {this.props.title}</Text>
+			</View>
+		);
+	}
 }
 
 const styles = StyleSheet.create({

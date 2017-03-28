@@ -8,14 +8,18 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View
+  View,
+  ScrollView
 } from 'react-native';
-import Index from './view/index'
+// import HomePage from './view/index'
+import Navbar from './view/navbar'
 
 export default class Main extends Component {
   render() {
     return (
-        <Index/>
+        <View>
+            <Navbar/>
+        </View>
     );
   }
 }

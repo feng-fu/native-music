@@ -6,11 +6,10 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry
+  AppRegistry,
+  Text
 } from 'react-native';
 
-import Main from './src/main'
-
-
+import Main from './src/view/navbar'
 
 AppRegistry.registerComponent('nativemusic', () => Main);
