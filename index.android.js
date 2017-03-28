@@ -5,9 +5,12 @@
  */
 
 import React, { Component } from 'react';
-import {AppRegistry} from 'react-native';
-import nativemusic from './src/main';
+import {
+  AppRegistry
+} from 'react-native';
+
+import Main from './src/main'
 
 
 
-AppRegistry.registerComponent('nativemusic', () => nativemusic);
+AppRegistry.registerComponent('nativemusic', () => Main);
