@@ -3,10 +3,10 @@ import {
 	StyleSheet,
 	View,
 	Text,
-	TouchableOpacity
+	TouchableOpacity,
+	Image
 } from 'react-native'
 
-import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class navbarStyle extends Component {
 	static propTypes = {
@@ -18,10 +18,8 @@ export default class navbarStyle extends Component {
 		let color = this.props.activeTab == i ? '#0683e5':'#8a97ab';
 		return (
 			<TouchableOpacity onPress={()=>this.props.goToPage(i)} style={styles.tab}>
-				<View style={styles.tebItem}>
-					<Icon name={this.props.tabIconNames[i]} // 图标
-						size={30}
-						color={color}/>
+				<View style={styles.tabItem}>
+					<Image style={styles.pic} source={require('./../source/ico.png')}/>
 					<Text style={{color: color}}>
 						{this.props.tabNames[i]}
 					</Text>
@@ -43,6 +41,10 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		height: 50,
 	},
+	pic: {
+		width: 10,
+		height: 10,
+	},
 
 	tab: {
 		flex: 1,
@@ -51,7 +53,10 @@ const styles = StyleSheet.create({
 	},
 
 	tabItem: {
-		flexDirection: 'column',
+		flexDirection: 'row',
 		alignItems: 'center',
+	},
+	icon: {
+		backgroundColor: '#ccc',
 	},
 })

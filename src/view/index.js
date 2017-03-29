@@ -11,19 +11,29 @@ export default class Index extends Component {
 	static defaultProps = {
 	    title: 'MyScene'
 	}
+	constructor(props) {
+	  super(props);
+	  this.state = {
+	  	linked: false,
+	  	data: []
+	  };
+	}
 	async componentDidMount () {
-		// fetch('https://cnodejs.org/api/v1/topics').then(res => res.json())
-		// .then(res => console.log(res))
-		// .catch(err=> console.log(`err:${err}`))
 		let response = await Utils.fetchRequest('https://cnodejs.org/api/v1/topics')
-		console.log(response)
 		this.setState({data: response.data})
 	}
+	_handleClick (e) {
+		console.log('in')
+		this.setState({
+			linked: !this.state.linked
+		})
+	}
 	render() {
-		console.log(this.data)
+		let word = this.state.linked? 'ass':'dbb';
 		return (
 			<View style={ styles.handbar }>
 				<Text>111 {this.props.title}</Text>
+				<Text onPress={ this._handleClick.bind(this) }>{word}</Text>
 			</View>
 		);
 	}

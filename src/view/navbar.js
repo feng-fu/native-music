@@ -18,7 +18,7 @@ export default class Navbar extends Component {
 	
 	  this.state = {
 	  	tabNames: ['首页', '详情页'],
-	  	tabIconNames: ['ios-musical-note', 'ios-microphone']
+	  	tabIconNames: ['./../source/ico.png', './../source/ico.png']
 	  };
 	}
 	render() {
