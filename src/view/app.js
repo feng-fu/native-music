@@ -14,6 +14,9 @@ export default class App extends Component {
 	
 	  this.state = {};
 	}
+	static navigationOptions = {
+    	title: 'Welcome',
+  	};
 	render () {
 		return (
 			<View style={ styles.view }>

@@ -29,15 +29,14 @@ export default class Content extends Component {
 	}
 	async _getCategoryDetail (id) {
 		id = id || 3;
-		console.log(id)
 		let response = await Utils.fetchRequest('http://route.showapi.com/213-4',{
 			body: `topid=${id}`
 		})
 		let data = response.showapi_res_body.pagebean.songlist
-
+		
 	}
+
 	render () {
-		console.log(this.props.dataSource)
 		return (
 			<ListView 
 				style={styles.layout}

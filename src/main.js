@@ -14,11 +14,14 @@ import {
 import App from './view/app'
 
 export default class Main extends Component {
-  render() {
-    return (
+    static navigationOptions = {
+    	title: 'Welcome',
+  	};
+  	render() {
+    	return (
           <App/>
-    );
-  }
+    	);
+    }
 }
 
 const styles = StyleSheet.create({
