@@ -6,10 +6,14 @@ import {
 } from 'react-native';
 
 import Utils from './../normal/utils'
+import { StackNavigator } from 'react-navigation';
 
 export default class Index extends Component {
 	static defaultProps = {
 	    title: 'MyScene'
+	}
+	static naigationOption = {
+		title: 'Chart with luck.'
 	}
 	constructor(props) {
 	  super(props);
@@ -38,6 +42,10 @@ export default class Index extends Component {
 		);
 	}
 }
+
+const SimpleApp = StackNavigator({
+	Home: {screen: Index}
+})
 
 const styles = StyleSheet.create({
 	handbar: {

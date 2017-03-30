@@ -11,8 +11,15 @@
    }
 */
 
-exports.fetchRequest = function(url, obj){
+let body = '&showapi_appid=34383&showapi_sign=8a31cc27032f4356bedc2d53950d43dd';
+
+exports.fetchRequest = async function(url, obj){
 	obj = obj || {}
-	return fetch(url, obj).then(res=>res.json()).then(resJson=>resJson)
+	obj.body += body
+	obj.method = obj.method || 'GET'
+	var result = await fetch(`${url}?${obj.body}`).then(res=>res.json()).then(resJson=>resJson)
 		   .catch(err=>err)
+
+	console.log(result)
+	return result
 }

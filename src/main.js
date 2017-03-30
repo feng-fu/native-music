@@ -11,12 +11,12 @@ import {
   View,
   ScrollView
 } from 'react-native';
-import Navbar from './view/navbar'
+import App from './view/app'
 
 export default class Main extends Component {
   render() {
     return (
-          <Navbar/>
+          <App/>
     );
   }
 }
