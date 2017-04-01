@@ -6,45 +6,52 @@ import {
 	Text,
 	View,
 	ListView,
+	ScrollView,
+	Image,
 } from 'react-native'
-import Utils from './../normal/utils'
+import Axios from 'axios'
+
+const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
 export default class Content extends Component {
 	constructor(props) {
-	  super(props);
-	
-	  this.state = {};
+	    super(props);
+	    this.state = {
+	      	dataSource: ds.cloneWithRows([])
+	  	};
 	}
-	static defaultProps = {
-		dataSource: (new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})).cloneWithRows([
-		        {
-		        	name: 'john',
-		        	id: 3
-		        },
-		        {
-		        	name: 'jack',
-		        	id: 5
-		        }
-		      ])
-	}
-	async _getCategoryDetail (id) {
-		id = id || 3;
-		let response = await Utils.fetchRequest('http://route.showapi.com/213-4',{
-			body: `topid=${id}`
-		})
-		let data = response.showapi_res_body.pagebean.songlist
-		
+	componentWillMount (id) {
+		Axios.get('http://route.showapi.com/213-4',{
+  			params:{
+  			    showapi_appid:'34383',
+  			    showapi_sign:'8a31cc27032f4356bedc2d53950d43dd',
+  			    topid:5
+  			}
+		}).then(res=>{
+			res = res.data.showapi_res_body.pagebean.songlist;
+			this.setState({
+				dataSource: ds.cloneWithRows(res)
+			})
+		}).catch(err=>console.log(err))
 	}
 
 	render () {
 		return (
+			<ScrollView>
 			<ListView 
+				enableEmptySections={true}
 				style={styles.layout}
-				dataSource={this.props.dataSource}
-          		renderRow={(rowData) => <Text onPress={this._getCategoryDetail.bind(this, rowData.id)}>{rowData.name}</Text>}
-			>
-
-			</ListView>
+				initialListSize={100}
+				dataSource={this.state.dataSource}
+          		renderRow={(rowData)=>{
+          			return (
+          				<View style={styles.listStyle}>
+          					<Image style={styles.image} source={{uri:rowData.albumpic_small}}/>
+          					<Text>{rowData.songname}</Text>
+          				</View>
+          			)
+          		}}
+			/></ScrollView>
 		)
 	}
 }
@@ -53,6 +60,16 @@ const styles = StyleSheet.create({
 	layout: {
 		flexDirection: 'row',
 		width: 385,
-		backgroundColor: '#f5f5f5'
+		backgroundColor: '#f5f5f5',
+		flex: 1,
+	},
+	image: {
+		width: 20,
+		height: 20,
+		borderRadius: 10,
+		margin: 10,
+	},
+	listStyle: {
+		flexDirection:'row'
 	}
 })
