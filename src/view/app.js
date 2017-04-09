@@ -6,7 +6,7 @@ import {
 
 import Header from './header'
 import Bottom from './bottom'
-import Content from './content'
+import Content from './school'
 
 export default class App extends Component {
 	constructor(props) {
@@ -21,7 +21,7 @@ export default class App extends Component {
 		return (
 			<View style={ styles.view }>
 				<Header/>
-				<Content/>
+				<Content style={ styles.view }/>
 				<Bottom/>
 			</View>
 		)
