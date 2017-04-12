@@ -9,7 +9,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Button,
 } from 'react-native';
 
 /*export default class nativemusic extends Component {
@@ -50,33 +51,32 @@ const styles = StyleSheet.create({
   },
 });*/
 
-import { Navigation } from 'react-native-navigation';
+import { StackNavigator } from 'react-navigation';
+import Main from './src/main'
 
-import { registerScreens } from './screens';
-registerScreens(); // this is where you register all of your app's screens
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  };
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <View>
+        <Text>Hello, Chat App!</Text>
+        <Button
+          onPress={() => navigate('Chat')}
+          title="Chat with Lucy"
+        />
+      </View>
+    );
+  }
+}
 
-// start the app
-Navigation.startTabBasedApp({
-  tabs: [
-    {
-      label: 'One',
-      screen: 'example.FirstTabScreen', // this is a registered name for a screen
-      icon: require('../img/one.png'),
-      selectedIcon: require('../img/one_selected.png'), // iOS only
-      title: 'Screen One'
-    },
-    {
-      label: 'Two',
-      screen: 'example.SecondTabScreen',
-      icon: require('../img/two.png'),
-      selectedIcon: require('../img/two_selected.png'), // iOS only
-      title: 'Screen Two'
-    }
-  ]
+const nativemusic = StackNavigator({
+  Home: { screen: HomeScreen },
+  Chat: { screen: Main },
 });
 
-class nativemusic extends Components {
 
-}
 
 AppRegistry.registerComponent('nativemusic', () => nativemusic);

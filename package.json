@@ -11,9 +11,9 @@
     "react": "~15.4.1",
     "react-native": "0.42.3",
     "react-native-audio": "^3.2.2",
-    "react-native-navigation": "^2.0.0-experimental.292",
     "react-native-scrollable-tab-view": "^0.6.3",
-    "react-native-vector-icons": "^4.0.0"
+    "react-native-vector-icons": "^4.0.0",
+    "react-navigation": "^1.0.0-beta.7"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",

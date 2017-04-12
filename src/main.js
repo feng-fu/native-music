@@ -15,7 +15,7 @@ import App from './view/app'
 
 export default class Main extends Component {
     static navigationOptions = {
-    	title: 'Welcome',
+    	title: 'Main',
   	};
   	render() {
     	return (
