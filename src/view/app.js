@@ -16,12 +16,12 @@ export default class App extends Component {
 	}
 	static navigationOptions = {
     	title: 'Welcome',
-  	};
+  }
 	render () {
 		return (
 			<View style={ styles.view }>
 				<Header/>
-				<Content style={ styles.view }/>
+				<Content style={ styles.view } {...this.props}/>
 				<Bottom/>
 			</View>
 		)

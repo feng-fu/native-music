@@ -57,7 +57,10 @@ export default class MyScene extends Component {
           dataSource={this.state.dataSource}
           renderRow={(rowData) => {
             return (
-              <TouchableHighlight onPress={this.toPropDetail.bind(this,rowData.id)} style={styles.box}>
+              <TouchableHighlight onPress={() => {
+                console.log(this.props)
+                return this.props.navigation.navigate('list', {id: rowData.id})
+                }} style={styles.box}>
                 <Text>{rowData.category}</Text>
               </TouchableHighlight>
             )

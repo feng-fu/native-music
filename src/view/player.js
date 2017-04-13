@@ -15,6 +15,9 @@ export default class Bottom extends Component {
           
         };
     }
+    static navigationOptions = {
+    	title: ({ state }) => `歌名`,
+  	};
     componentDidMount() {
         
     }
